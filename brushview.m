@@ -7,7 +7,8 @@
 //
 
 #import "brushview.h"
-@interface BrushPoint : NSObject
+#import "BrushPoint.h"
+/*@interface BrushPoint : NSObject
 {
     NSPoint p;
     int t;
@@ -30,7 +31,7 @@
 @synthesize bsize;
 @synthesize inoutflag;
 @synthesize undoflag;
-@end
+@end*/
 
 @implementation brushview
 @synthesize a;
@@ -129,7 +130,7 @@
             }
         }
         [NSBezierPath setDefaultFlatness:0.5];
-        [NSBezierPath setDefaultLineCapStyle: 1];
+        [NSBezierPath setDefaultLineCapStyle: NSRoundLineCapStyle];
         [trace moveToPoint:[bp p]];
         for(int i = 1;i<[a count]; i ++)
         {
@@ -150,7 +151,7 @@
                 trace = [[NSBezierPath alloc]init];
                 [trace setLineWidth:[bp bsize]];
                 [NSBezierPath setDefaultFlatness:0.5];
-                [NSBezierPath setDefaultLineCapStyle: 1];
+                [NSBezierPath setDefaultLineCapStyle: NSRoundLineCapStyle];
                 if([bp inoutflag] == 0)
                 {
                     if(drawcolor == 0)
